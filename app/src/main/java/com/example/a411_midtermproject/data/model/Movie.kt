@@ -1,5 +1,10 @@
 package com.example.a411_midtermproject.data.model
 
-data class Movie (
-    val id: Int
+data class Movie(
+    val id: Int,
+    val title: String,
+    val description: String,
+    val rating: Double,
+    val imageRes: Int,
+    var isInWatchlist: Boolean = false
 )
