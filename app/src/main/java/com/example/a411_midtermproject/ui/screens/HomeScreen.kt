@@ -15,8 +15,8 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
 
-@Composable
 @OptIn(ExperimentalMaterial3Api::class)
+@Composable
 fun HomeScreen(navController: NavController, viewModel: MovieViewModel) {
     Scaffold(
         topBar = {

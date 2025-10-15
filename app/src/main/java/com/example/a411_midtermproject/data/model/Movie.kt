@@ -5,6 +5,7 @@ data class Movie(
     val title: String,
     val description: String,
     val rating: Double,
+    val year: Int,
     val imageRes: Int,
     var isInWatchlist: Boolean = false
 )

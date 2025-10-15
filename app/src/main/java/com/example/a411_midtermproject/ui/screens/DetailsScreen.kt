@@ -11,7 +11,7 @@ import com.example.a411_midtermproject.data.model.Movie
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DetailsScreen(
     navController: NavController,
@@ -19,7 +19,6 @@ fun DetailsScreen(
     viewModel: MovieViewModel
 ) {
     val movie: Movie? = viewModel.getMovieById(movieId)
-    @OptIn(ExperimentalMaterial3Api::class)
 
     Scaffold(
         topBar = {
