@@ -6,14 +6,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -33,6 +32,8 @@ import com.example.a411_midtermproject.ui.theme._411_MidtermProjectTheme
 @Composable
 fun DetailedMovieCard (
     movie: Movie,
+    isInWatchList: Boolean,
+    onWatchListToggle: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Card(
@@ -92,9 +93,20 @@ fun DetailedMovieCard (
 
                 Spacer(modifier = Modifier.weight(1f))
 
-                Button(onClick = {},
+                Button(
+                    onClick = onWatchListToggle,
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = if (isInWatchList)
+                            MaterialTheme.colorScheme.secondary
+                        else
+                            MaterialTheme.colorScheme.primary
+                    ),
                     modifier = Modifier.fillMaxWidth()) {
-                    Text(text = "Add to watchlist")
+                    Text(
+                        text = if (isInWatchList) "In Watchlist" else "Add to Watchlist",
+                        style = MaterialTheme.typography.titleMedium
+                    )
+
                 }
 
 
@@ -118,11 +130,13 @@ fun DetailedMovieCardPreview() {
         rating = 8.8,
         year = 2010,
         runtime = 169,
-        imageRes = R.drawable.inception
+        imageRes = R.drawable.inception,
         )
 
         DetailedMovieCard(
-            movie = sampleMovie
+            movie = sampleMovie,
+            onWatchListToggle = {},
+            isInWatchList = false
         )
 
     }

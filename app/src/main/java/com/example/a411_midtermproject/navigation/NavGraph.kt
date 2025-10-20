@@ -10,10 +10,21 @@ import com.example.a411_midtermproject.viewmodel.MovieViewModel
 @Composable
 fun NavGraph(navController: NavHostController, movieViewModel: MovieViewModel) {
     NavHost(navController, startDestination = "home") {
-        composable("home") { HomeScreen(navController, movieViewModel) }
+        composable("home") {
+            HomeScreen(
+                viewModel = movieViewModel,
+                onWatchListClick = { navController.navigate("watchlist") },
+                onMovieClick = { movieId ->
+                    navController.navigate("details/$movieId")
+                }
+        ) }
         composable("details/{movieId}") { backStack ->
             val movieId = backStack.arguments?.getString("movieId")?.toInt() ?: 0
-            DetailsScreen(navController, movieId, movieViewModel)
+            DetailsScreen(
+                viewModel = movieViewModel,
+                movieId = movieId,
+                onBackClick = { navController.navigateUp() }
+            )
         }
         composable("watchlist") { WatchlistScreen(navController, movieViewModel) }
     }

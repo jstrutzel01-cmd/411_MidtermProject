@@ -13,6 +13,10 @@ class MovieViewModel : ViewModel() {
         movie.isInWatchlist = !movie.isInWatchlist
     }
 
+    fun isInWatchlist(movieId: Int): Boolean {
+        return _movies.find { it.id == movieId }?.isInWatchlist ?: false
+    }
+
     fun getMovieById(id: Int): Movie? = _movies.find { it.id == id }
 
     val watchlist: List<Movie>
