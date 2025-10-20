@@ -28,7 +28,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.a411_midtermproject.data.model.Movie
@@ -37,7 +36,7 @@ import com.example.a411_midtermproject.R
 
 
 @Composable
-fun MovieCard(
+fun SimpleMovieCard(
     movie: Movie,
     onClick: () -> Unit,
     modifier: Modifier = Modifier
@@ -122,10 +121,11 @@ fun MovieCardPreview() {
             description = "A thief who steals corporate secrets through dreams.",
             rating = 8.8,
             year = 2010,
-            imageRes = R.drawable.inception
+            imageRes = R.drawable.inception,
+            runtime = 169
         )
 
-        MovieCard(movie = sampleMovie, onClick = {})
+        SimpleMovieCard(movie = sampleMovie, onClick = {})
     }
 }
 
