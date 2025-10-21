@@ -46,7 +46,7 @@ fun SimpleMovieCard(
             .fillMaxWidth()
             .height(250.dp)
             .clickable { onClick() },
-        shape = RoundedCornerShape(1.dp),
+        shape = RoundedCornerShape(10.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 6.dp)
     ) {
         Box(
@@ -56,7 +56,8 @@ fun SimpleMovieCard(
                 painter = painterResource(id = movie.imageRes),
                 contentDescription = movie.title,
                 contentScale = ContentScale.Crop,
-                modifier = Modifier.fillMaxSize()
+                modifier = Modifier.fillMaxSize(),
+
 
             )
 

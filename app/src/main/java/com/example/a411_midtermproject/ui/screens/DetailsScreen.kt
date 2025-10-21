@@ -2,14 +2,13 @@
 package com.example.a411_midtermproject.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import com.example.a411_midtermproject.ui.components.DetailedMovieCard
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
 
@@ -39,7 +38,7 @@ fun DetailsScreen(
                 title = { Text("Movie Details") },
                 navigationIcon = {
                     IconButton(onClick = onBackClick) {
-                        Icon(Icons.Default.ArrowBack, "Back")
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, "Back")
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -52,13 +51,13 @@ fun DetailsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
         ) {
-            // Use the DetailedMovieInfo component - that's it!
+            Spacer(modifier = Modifier.height(16.dp))
             DetailedMovieCard(
                 movie = movie,
                 isInWatchList = isInWatchlist,
-                onWatchListToggle = { viewModel.toggleWatchlist(movie) }
+                onWatchListToggle = { viewModel.toggleWatchlist(movie) },
+                modifier = Modifier.padding(16.dp)
             )
         }
     }
