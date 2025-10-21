@@ -26,6 +26,13 @@ fun NavGraph(navController: NavHostController, movieViewModel: MovieViewModel) {
                 onBackClick = { navController.navigateUp() }
             )
         }
-        composable("watchlist") { WatchlistScreen(navController, movieViewModel) }
+        composable("watchlist") {
+            WatchlistScreen(
+                viewModel = movieViewModel,
+                onMovieClick = { movieId ->
+                    navController.navigate("details/$movieId")
+                },
+                onBackClick = {navController.navigateUp()}
+            ) }
     }
 }

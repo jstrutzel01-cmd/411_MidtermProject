@@ -1,45 +1,88 @@
+// ui/screens/WatchlistScreen.kt
 package com.example.a411_midtermproject.ui.screens
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import com.example.a411_midtermproject.viewmodel.MovieViewModel
 import androidx.compose.ui.Alignment
-@OptIn(ExperimentalMaterial3Api::class)
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import com.example.a411_midtermproject.ui.components.SimpleMovieCard
+import com.example.a411_midtermproject.viewmodel.MovieViewModel
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun WatchlistScreen(navController: NavController, viewModel: MovieViewModel) {
-    val watchlist = viewModel.watchlist
+fun WatchlistScreen(
+    viewModel: MovieViewModel,
+    onMovieClick: (Int) -> Unit,
+    onBackClick: () -> Unit
+) {
+    val watchlistMovies = viewModel.watchlist
 
     Scaffold(
-        topBar = { TopAppBar(title = { Text("Watchlist") }) }
-    ) { padding ->
-        if (watchlist.isEmpty()) {
+        topBar = {
+            TopAppBar(
+                title = { Text("My Watchlist") },
+                navigationIcon = {
+                    IconButton(onClick = onBackClick) {
+                        Icon(Icons.Default.ArrowBack, "Back")
+                    }
+                },
+                colors = TopAppBarDefaults.topAppBarColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                )
+            )
+        }
+    ) { paddingValues ->
+        if (watchlistMovies.isEmpty()) {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .padding(padding),
+                    .padding(paddingValues),
                 contentAlignment = Alignment.Center
             ) {
-                Text("Your watchlist is empty")
+                Column(
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                    verticalArrangement = Arrangement.spacedBy(8.dp)
+                ) {
+                    Text(
+                        text = "Your watchlist is empty",
+                        style = MaterialTheme.typography.titleLarge,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant
+                    )
+                    Text(
+                        text = "Add movies to your watchlist to see them here",
+                        style = MaterialTheme.typography.bodyMedium,
+                        color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = 32.dp)
+                    )
+                }
             }
         } else {
-            LazyColumn(modifier = Modifier.padding(padding)) {
-                items(watchlist) { movie ->
-                    Text(
-                        text = movie.title,
-                        style = MaterialTheme.typography.titleMedium,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(8.dp)
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2),
+                contentPadding = PaddingValues(16.dp),
+                horizontalArrangement = Arrangement.spacedBy(12.dp),
+                verticalArrangement = Arrangement.spacedBy(12.dp),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(paddingValues)
+            ) {
+                items(watchlistMovies) { movie ->
+                    SimpleMovieCard(
+                        movie = movie,
+                        onClick = { onMovieClick(movie.id) }
                     )
                 }
             }
         }
     }
 }
+
