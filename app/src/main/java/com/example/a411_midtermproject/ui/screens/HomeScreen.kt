@@ -12,6 +12,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.a411_midtermproject.ui.components.SimpleMovieCard
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
+import com.example.a411_midtermproject.ui.theme.NiceBlue
+import com.example.a411_midtermproject.ui.theme.NiceGray
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -28,12 +31,14 @@ fun HomeScreen(
                     IconButton(onClick = onWatchListClick) {
                         Icon(
                             imageVector = Icons.Default.PlayArrow,
-                            contentDescription = "Watchlist"
+                            contentDescription = "Watchlist",
+                            tint = NiceGray
                         )
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = NiceBlue, // your custom color
+                    titleContentColor = NiceGray
                 )
             )
         }

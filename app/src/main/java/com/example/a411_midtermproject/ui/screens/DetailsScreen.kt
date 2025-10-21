@@ -11,6 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import com.example.a411_midtermproject.ui.components.DetailedMovieCard
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
+import com.example.a411_midtermproject.ui.theme.NiceBlue
+import com.example.a411_midtermproject.ui.theme.NiceGray
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -42,7 +44,8 @@ fun DetailsScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = NiceBlue, // your custom color
+                    titleContentColor = NiceGray
                 )
             )
         }

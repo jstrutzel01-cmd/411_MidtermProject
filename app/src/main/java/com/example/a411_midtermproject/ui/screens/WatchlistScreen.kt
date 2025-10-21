@@ -15,7 +15,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.a411_midtermproject.ui.components.SimpleMovieCard
 import com.example.a411_midtermproject.viewmodel.MovieViewModel
-
+import com.example.a411_midtermproject.ui.theme.NiceBlue
+import com.example.a411_midtermproject.ui.theme.NiceGray
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun WatchlistScreen(
@@ -35,7 +36,8 @@ fun WatchlistScreen(
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer
+                    containerColor = NiceBlue, // your custom color
+                    titleContentColor = NiceGray
                 )
             )
         }
