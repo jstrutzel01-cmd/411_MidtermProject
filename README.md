@@ -1,11 +1,15 @@
 # 411_MidtermProject
 Android Jetpack Compose Mid-Term Project - CS 411
 
+**Contributors:**
+
 Eric Lopez Morales
-
 elm31@csu.fullerton.edu
-
 CWID: 813485034
+
+Joshua Strutzel
+jstrutzel01@csu.fullerton.edu
+CWID: 871944823
 
 
 # **Movie Viewer App – README**
