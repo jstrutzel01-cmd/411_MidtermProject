@@ -18,6 +18,7 @@ The app demonstrates key Android development concepts including:
 
 ## **App Layout**
 <img width="386" height="668" alt="Screenshot 2025-10-21 221643" src="https://github.com/user-attachments/assets/c257181c-2fe4-4851-86a3-3ec8eabcf575" />
+
 This app contains three main screens:
 
 - **Home Screen**  
