@@ -73,13 +73,14 @@ Manages app state including the list of movies and the Watchlist.
 
 ### **Screens**
 - **`HomeScreen.kt`** → Displays all movies in a scrollable grid; allows navigation to **Details** and **Watchlist**
-<img width="418" height="780" alt="Screenshot 2025-10-21 230137" src="https://github.com/user-attachments/assets/b227453e-f955-4e3b-9a0b-d7cd93e91e2b" />
+<img width="420" height="919" alt="Screenshot 2025-10-21 230022" src="https://github.com/user-attachments/assets/cba9c7bf-d6fb-4571-a62e-06ef2d047aef" />
 
 - **`DetailsScreen.kt`** → Shows detailed info for a single movie, includes a **back button** and **Watchlist toggle**
 <img width="414" height="377" alt="Screenshot 2025-10-21 230052" src="https://github.com/user-attachments/assets/976d02d7-57e4-449e-856c-d0c83811b160" />
 
 - **`WatchlistScreen.kt`** → Displays movies currently in the Watchlist and allows navigation to movie details
-<img width="420" height="919" alt="Screenshot 2025-10-21 230022" src="https://github.com/user-attachments/assets/cba9c7bf-d6fb-4571-a62e-06ef2d047aef" />
+<img width="418" height="780" alt="Screenshot 2025-10-21 230137" src="https://github.com/user-attachments/assets/b227453e-f955-4e3b-9a0b-d7cd93e91e2b" />
+
 
 ---
 
